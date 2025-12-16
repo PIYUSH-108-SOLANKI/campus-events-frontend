@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
 import { Link } from "react-router-dom";
+import EventCard from "../../components/EventCard";
 
 const AdminDashboard = () => {
   const [events, setEvents] = useState([]);
@@ -38,58 +39,61 @@ const AdminDashboard = () => {
 
   if (loading) {
     return (
-      <div className="text-center mt-10">
-        Loading admin dashboard...
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="text-center mt-10">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <p className="mt-4 text-lg text-gray-600">Loading admin dashboard...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">
-        Admin Dashboard
-      </h1>
+    <div className="max-w-6xl mx-auto px-4 py-6">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          Admin Dashboard
+        </h1>
+        <p className="text-gray-600">
+          Review and approve pending event submissions
+        </p>
+      </div>
 
       {events.length === 0 ? (
-        <p className="text-gray-500">
-          No pending events 🎉
-        </p>
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4">🎉</div>
+          <p className="text-xl text-gray-500 mb-2">No pending events</p>
+          <p className="text-gray-400">All events have been reviewed!</p>
+        </div>
       ) : (
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-6">
           {events.map((event) => (
-            <div
+            <EventCard
               key={event._id}
-              className="border p-4 rounded flex justify-between items-center"
-            >
-              <div>
-                <h2 className="text-lg font-semibold">
-                  {event.title}
-                </h2>
-                <p className="text-sm text-gray-600">
-                  {event.description}
-                </p>
-                <p className="text-sm text-gray-500">
-                  📍 {event.location} | 📅{" "}
-                  {new Date(event.date).toDateString()}
-                </p>
-              </div>
-
-              <div className="flex gap-3">
-                <Link
-                  to={`/admin/attendees/${event._id}`}
-                  className="text-blue-600"
-                >
-                  View Attendees
-                </Link>
-
-                <button
-                  onClick={() => approveEvent(event._id)}
-                  className="bg-green-600 text-white px-4 py-2 rounded"
-                >
-                  Approve
-                </button>
-              </div>
-            </div>
+              event={event}
+              showDetails={false}
+              status={
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                  Pending Review
+                </span>
+              }
+              actions={
+                <>
+                  <Link
+                    to={`/admin/attendees/${event._id}`}
+                    className="text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline"
+                  >
+                    View Attendees
+                  </Link>
+                  <button
+                    onClick={() => approveEvent(event._id)}
+                    className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
+                  >
+                    ✓ Approve
+                  </button>
+                </>
+              }
+            />
           ))}
         </div>
       )}
