@@ -7,7 +7,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="max-w-6xl mx-auto px-4 py-6 animate-fadeIn">
             <div className="bg-white rounded-lg shadow-md border p-8">
                 <div className="text-center mb-6">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 mb-4">
@@ -32,7 +32,7 @@ const Dashboard = () => {
 
                     <button
                         onClick={handleLogout}
-                        className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors"
+                        className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-all active:scale-95"
                     >
                         Logout
                     </button>

@@ -127,7 +127,7 @@ const OrganizerDashboard = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all active:scale-95"
           >
             Create Event
           </button>
@@ -162,7 +162,7 @@ const OrganizerDashboard = () => {
                   className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
                     event.approved
                       ? "bg-green-100 text-green-800"
-                      : "bg-yellow-100 text-yellow-800"
+                      : "bg-yellow-100 text-yellow-800 animate-pulse"
                   }`}
                 >
                   {event.approved ? "✓ Approved" : "⏳ Pending Approval"}

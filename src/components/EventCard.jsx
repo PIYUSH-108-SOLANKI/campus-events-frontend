@@ -7,7 +7,7 @@ const EventCard = ({
   status,
 }) => {
   return (
-    <div className="bg-white border rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow duration-200">
+    <div className="bg-white border rounded-lg p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
       {/* Top section */}
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">

@@ -127,10 +127,10 @@ const EventDetails = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6">
+    <div className="max-w-6xl mx-auto px-4 py-6 animate-fadeIn">
       <button
         onClick={() => navigate(-1)}
-        className="mb-6 text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2"
+        className="mb-6 text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 transition hover:gap-3"
       >
         ← Back
       </button>
@@ -206,14 +206,14 @@ const EventDetails = () => {
               {!hasRSVP ? (
                 <button
                   onClick={handleRSVP}
-                  className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-all active:scale-95 flex items-center justify-center gap-2"
                 >
                   <span className="text-xl">✓</span>
                   RSVP to this Event
                 </button>
               ) : (
                 <div className="space-y-3">
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center animate-fadeIn">
                     <p className="text-green-800 font-medium flex items-center justify-center gap-2">
                       <span className="text-xl">✓</span>
                       You're attending this event!
@@ -221,7 +221,7 @@ const EventDetails = () => {
                   </div>
                   <button
                     onClick={handleCancelRSVP}
-                    className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors"
+                    className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-all active:scale-95"
                   >
                     Cancel RSVP
                   </button>

@@ -73,7 +73,7 @@ const AdminDashboard = () => {
               event={event}
               showDetails={false}
               status={
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 animate-pulse">
                   Pending Review
                 </span>
               }
@@ -87,7 +87,7 @@ const AdminDashboard = () => {
                   </Link>
                   <button
                     onClick={() => approveEvent(event._id)}
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
+                    className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-all active:scale-95"
                   >
                     ✓ Approve
                   </button>
