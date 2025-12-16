@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
-import { Link } from "react-router-dom";
+
 import EventCard from "../../components/EventCard";
 
 const AdminDashboard = () => {
@@ -79,12 +79,7 @@ const AdminDashboard = () => {
               }
               actions={
                 <>
-                  <Link
-                    to={`/admin/attendees/${event._id}`}
-                    className="text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline"
-                  >
-                    View Attendees
-                  </Link>
+
                   <button
                     onClick={() => approveEvent(event._id)}
                     className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-all active:scale-95"

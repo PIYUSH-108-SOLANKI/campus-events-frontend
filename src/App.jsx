@@ -59,8 +59,6 @@ function App() {
             </OrganizerRoute>
           }
         />
-
-
       </Routes>
 
     </>

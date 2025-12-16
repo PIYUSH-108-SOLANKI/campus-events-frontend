@@ -18,7 +18,7 @@ const EventDetails = () => {
     const fetchEvent = async () => {
       try {
         const res = await api.get(`/events/${id}`);
-        
+
         // Fetch RSVP count for this event
         try {
           const countRes = await api.get(`/rsvp/count/${id}`);
@@ -142,14 +142,13 @@ const EventDetails = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-3">
               {event.title}
             </h1>
-            
+
             {event.approved !== undefined && (
               <span
-                className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                  event.approved
+                className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${event.approved
                     ? "bg-green-100 text-green-800"
                     : "bg-yellow-100 text-yellow-800"
-                }`}
+                  }`}
               >
                 {event.approved ? "✓ Approved" : "⏳ Pending Approval"}
               </span>
